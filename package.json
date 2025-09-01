@@ -1,0 +1,13 @@
+{
+  "name": "playwright-saucedemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nskills-lab/playwright-saucedemo.git",
+  "author": "Nina <80556270+nskills-lab@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0"
+  },
+  "scripts": {}
+}
