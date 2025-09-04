@@ -6,8 +6,6 @@ test.describe.parallel("Login Page", () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
 
-  test.beforeAll(async () => {});
-
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
     inventoryPage = new InventoryPage(page);

@@ -10,7 +10,6 @@ test.describe("E2E Tests", async () => {
   let cartPage: CartPage;
   let checkoutPage: CheckoutPage;
 
-  test.beforeAll(async () => {});
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
     inventoryPage = new InventoryPage(page);
@@ -21,9 +20,13 @@ test.describe("E2E Tests", async () => {
   });
 
   test("Complete checkout flow", async () => {
-    await inventoryPage.addProductToCard("sauce-labs-backpack");
-    await inventoryPage.addProductToCard("sauce-labs-bolt-t-shirt");
-    await inventoryPage.addProductToCard("sauce-labs-fleece-jacket");
+    [
+      "sauce-labs-backpack",
+      "sauce-labs-bolt-t-shirt",
+      "sauce-labs-fleece-jacket",
+    ].forEach(async (item) => {
+      await inventoryPage.addProductToCard(item);
+    });
     let actual = await inventoryPage.shoppingCart.innerText();
     expect(actual).toBe("3");
     await inventoryPage.removeProductToCard("sauce-labs-bolt-t-shirt");
@@ -37,6 +40,6 @@ test.describe("E2E Tests", async () => {
     await cartPage.checkoutBtn.click();
     await checkoutPage.completeCheckoutInfo("Jane", "Doe", "12345");
     await checkoutPage.finishBtn.click();
-    await expect(await checkoutPage.completeHeader).toBeVisible();
+    await expect(checkoutPage.completeHeader).toBeVisible();
   });
 });
