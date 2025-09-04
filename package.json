@@ -2,13 +2,20 @@
   "name": "playwright-automation",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:nskills-lab/playwright-saucedemo.git",
+  "repository": "git@github.com:nskills-lab/playwright-automation.git",
   "author": "Nina <80556270+nskills-lab@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.3.0",
+    "allure-commandline": "^2.34.1",
+    "allure-js-commons": "^3.3.3",
+    "allure-playwright": "^3.3.3",
     "dotenv": "^17.2.1"
   },
-  "scripts": {}
+  "scripts": {
+    "regression": "npx playwright test",
+    "allure:report": "allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "allure open ./allure-report"
+  }
 }

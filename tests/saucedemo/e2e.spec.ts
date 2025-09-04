@@ -1,8 +1,8 @@
 import test, { expect } from "@playwright/test";
-import { LoginPage } from "../page-objects/LoginPage";
-import { InventoryPage } from "../page-objects/InventoryPage";
-import { CartPage } from "../page-objects/CartPage";
-import { CheckoutPage } from "../page-objects/CheckoutPage";
+import { LoginPage } from "../../page-objects/saucedemo/LoginPage";
+import { InventoryPage } from "../../page-objects/saucedemo/InventoryPage";
+import { CartPage } from "../../page-objects/saucedemo/CartPage";
+import { CheckoutPage } from "../../page-objects/saucedemo//CheckoutPage";
 
 test.describe("E2E Tests", async () => {
   let loginPage: LoginPage;
