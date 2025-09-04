@@ -11,11 +11,11 @@ export class InventoryPage extends BasePage {
     this.shoppingCart = page.locator('[data-test="shopping-cart-badge"]');
   }
 
-  async addProductToCard(productName: string) {
+  async addProductToCart(productName: string) {
     await this.page.locator(`#add-to-cart-${productName}`).click();
   }
 
-  async removeProductToCard(productName: string) {
+  async removeProductToCart(productName: string) {
     await this.page.locator(`#remove-${productName}`).click();
   }
 }

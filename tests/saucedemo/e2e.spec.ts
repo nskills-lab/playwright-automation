@@ -20,16 +20,16 @@ test.describe("E2E Tests", async () => {
   });
 
   test("Complete checkout flow", async () => {
-    [
+    for (const item of [
       "sauce-labs-backpack",
-      "sauce-labs-bolt-t-shirt",
       "sauce-labs-fleece-jacket",
-    ].forEach(async (item) => {
-      await inventoryPage.addProductToCard(item);
-    });
+      "sauce-labs-bolt-t-shirt",
+    ]) {
+      await inventoryPage.addProductToCart(item);
+    }
     let actual = await inventoryPage.shoppingCart.innerText();
     expect(actual).toBe("3");
-    await inventoryPage.removeProductToCard("sauce-labs-bolt-t-shirt");
+    await inventoryPage.removeProductToCart("sauce-labs-bolt-t-shirt");
     actual = await inventoryPage.shoppingCart.innerText();
     expect(actual).toBe("2");
     await inventoryPage.shoppingCart.click();
